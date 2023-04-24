@@ -1,0 +1,73 @@
+# Write your query{} or mutation here
+{
+  #-----------------------------------
+  #1ª Ola mundo
+  #ola
+  #-----------------------------------
+  #2º Hora atual
+  #horaAtual
+  #-----------------------------------
+  #3º Usuario logado
+  #usuarioLogado{
+  #id
+	#nome
+	#email
+	#idade
+	#salario
+	#vip
+	#}
+  #-----------------------------------
+  #4º Produto comprado
+	#productPurchased{
+	#name
+	#price
+	#discount
+	#discountTotal
+	#}
+	#-----------------------------------
+  #5º Numeros da megasena
+	#numerosMegaSena 
+	#-----------------------------------
+  #6º Array usuarios
+  #usuarios {
+	#id
+	#nome
+	#}
+	#-----------------------------------
+  #7º Usuario por id
+	#usuario (id: 1) {
+	#id
+	#nome
+	#email
+	#}
+	#-----------------------------------
+  #8º Array de perfis
+	#perfis{
+	#id
+	#nome
+	#}
+	#-----------------------------------
+  #9º Perfil por id  
+	#perfil(id:2){
+	#id
+	#nome
+	#}
+	#-----------------------------------
+  #10º Join usuarios e perfil ver resolver  
+ 	#usuarios{
+ 	#nome
+ 	#perfil{
+ 	#id
+ 	#nome
+ 	#}
+	#}
+  #-----------------------------------
+  #11º Uso de fragment
+  usuario(id: 1){
+    ...usuarioCompleto
+  }
+}
+fragment usuarioCompleto on Usuario{
+  id nome email idade salario vip
+  perfil { id nome}
+}
